@@ -1,0 +1,18 @@
+# Site settings
+title: Suchit Gupte
+email: gupte.31@osu.edu
+description: > # this means to ignore newlines until "baseurl:"
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://suchitgupte.github.io" # the base hostname & protocol for your site
+#url: "http://localhost:4000" # the base hostname & protocol for your site
+github_username:  suchitgupte
+twitter_username: suchit_gupte
+linkedin_username: suchit-gupte-19a4b9194
+gscholar_username: -aohsoUAAAAJ&hl
+
+# Build settings
+markdown: kramdown
+
+# This will require each of these plugins automatically.
+plugins:
+  - jekyll-gist

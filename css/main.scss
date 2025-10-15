@@ -1,0 +1,213 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+// Our variables
+$base-font-family: Helvetica, Arial, sans-serif;
+$base-font-size:   2vh; // OG: 2.5vh = 16px
+$small-font-size:  $base-font-size * 0.875;
+$base-line-height: 1.5;
+
+$spacing-unit:     20px;
+
+$text-color:       #111;
+$background-color: #fdfdfd;
+$brand-color:      #2a7ae2;
+
+$grey-color:       #828282;
+$grey-color-light: lighten($grey-color, 40%);
+$grey-color-dark:  darken($grey-color, 25%);
+
+// Width of the content area
+$content-width:    1000px;
+
+$on-palm:          600px;
+$on-laptop:        1000px;
+
+$pp-img: 150px; // 25vh; //
+$pp-height: 160px; // 27vh; //
+$pp-margin: 20px; // 4vh; //
+
+// Using media queries with like this:
+// @include media-query($on-palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2;
+//         padding-left: $spacing-unit / 2;
+//     }
+// }
+@mixin media-query($device) {
+    @media screen and (max-width: $device) {
+        @content;
+    }
+}
+
+
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+        "base",
+        "layout",
+        "syntax-highlighting"
+;
+
+.hoverlist {
+  display: none;
+  text-decoration:none;
+
+  h2 {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  .projectpreview {
+    padding: 20px 10px 20px 20px;
+    position:relative;
+    min-height: $pp-height;
+    text-decoration: none;
+    text-align: justify;
+    display: block;
+
+    -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+    transition: font-size 0.3s ease, background-color 0.3s ease;
+  }
+
+  .projectpreview:hover {
+    font-size: $base-font-size;
+    text-decoration: none;
+    background: #f0f0f0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  img {
+    float: left;
+    height: $pp-img;
+    width: $pp-img;
+    padding: 5px 20px 5px 20px;
+    margin-right: 5px;
+  }
+}
+
+.postsbytags {
+  ul {
+      list-style-type: none;
+      margin: 0px;
+      padding: 0px;
+  }
+
+  li {
+      display: inline;
+  }
+  
+}
+
+hr {
+  border: 0; height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.domain::before {
+    content: "\0040";    /* Unicode character for @ symbol */
+}
+
+.date {
+  position:absolute;
+  bottom:$pp-margin;
+  right:$pp-margin;
+}
+
+
+/* ==== News Section ==== */
+.news-section {
+  // background: #ffffff;
+  // border: 1px solid #eee;
+  // border-radius: 10px;
+  // padding: 15px 25px;
+  // margin-top: 50px;
+  margin-left: 5px;
+  max-height: 280px;     /* scrollable box */
+  overflow-y: auto;
+  // box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.news-section:hover {
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+.news-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.news-list li {
+  margin-bottom: 12px;
+  line-height: 1.5;
+  font-size: 0.98rem;
+  border-left: 3px solid #ba0c2f;
+  padding-left: 10px;
+  transition: transform 0.2s ease;
+}
+
+.news-list li:hover {
+  transform: translateX(-10px);
+}
+
+.site-title {
+  // font-size: 1.7rem;
+  font-weight: 700;
+  color: #ba0c2f; /* OSU Scarlet */
+}
+
+/* ==== Section Title Styling (BIO + NEWS) ==== */
+.section-title {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #ba0c2f; /* OSU Scarlet */
+  margin-top: 40px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: 0.5px;
+}
+
+.section-title i {
+  color: #ba0c2f; /* OSU Scarlet for icons */
+  font-size: 1.8rem;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.section-title:hover i {
+  transform: scale(1.15);
+  color: #880d1e; /* darker OSU tone on hover */
+}
+
+/* BIO icon and NEWS icon colors */
+#hi::before,
+#news::before {
+  color: #ba0c2f; /* OSU Scarlet */
+}
+
+/* Slight hover effect */
+.section-title:hover::before {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+/* BIO paragraph formatting for cleaner look */
+#hi + p,
+#hi + a,
+#hi + div {
+  line-height: 1.7;
+  color: #111;
+}

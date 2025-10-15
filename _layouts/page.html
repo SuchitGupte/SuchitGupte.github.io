@@ -1,0 +1,150 @@
+---
+layout: default
+---
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<script type="text/javascript">
+function toggleDiv(divId) {
+  $('.hoverlist').each(function(index) {
+    if ($(this).attr("id") == divId) {
+      $(this).show(200);
+    }
+    else {
+      $(this).hide(600);
+    }
+  });
+}
+$( document ).ready(function() {
+  toggleDiv('all');
+});
+</script>
+
+<div class="post">
+
+  <!-- <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+  </header> -->
+
+  <article class="post-content">
+    {{ content }}
+  </article>
+
+  <p style="clear: both;"></p>
+
+  <center>
+    <div class="postsbytags">
+      <ul>
+      <li><a href="javascript:toggleDiv('all');">all</a></li>
+      <li>| <a href="javascript:toggleDiv('agents');">generalist agents</a></li>
+      <li>| <a href="javascript:toggleDiv('reinforcement and imitation learning');">reinforcement and imitation learning</a></li>
+      <!-- {% for tag in site.tags %}
+        {% assign t = tag | first %}
+        {% if t != "robust deep learning" %}
+        {% if t != "reinforcement learning" %}
+        {% if t != "CPS safety and security" %}
+        {% if t != "all" %}
+          <li><a href="javascript:toggleDiv('{{ t | downcase }}');">{{ t | downcase }}</a> {% unless forloop.last %} | {% endunless %} </li>
+        {% endif %}
+        {% endif %}
+        {% endif %}
+        {% endif %}
+      {% endfor %} -->
+      <!-- <li>| <a href="javascript:toggleDiv('learning for dynamics and control');">learning for dynamics and control</a></li> -->
+      <li>| <a href="javascript:toggleDiv('generative models');">generative models</a></li>
+      <li>| <a href="javascript:toggleDiv('robust deep learning');">robust deep learning</a></li>
+      <li>| <a href="javascript:toggleDiv('other');">other</a></li>
+      <li>| <a href="javascript:toggleDiv('blogposts');">blogposts</a></li>
+      </ul>
+    </div>
+  </center>
+
+  <br />
+
+  {% for tag in site.tags %}
+    {% assign t = tag | first %}
+    {% assign posts = tag | last %}
+
+  <div class="hoverlist" id="{{ t }}">
+  <h2>{{ t | downcase }}</h2>
+  <hr>
+  {% for post in posts %}
+    {% if post.tags contains t %}
+      {% if post.layout == "research" %}
+        <!-- <a href="{{ post.projectlink }}"> -->
+        <div class="projectpreview">
+          {% if post.img %}
+            <img src="{{ site.url }}/assets/{{ post.img }}">
+          {% elsif post.externalimg %}
+            <img src="{{ post.externalimg }}">
+          {% else %}
+            <img src="{{ site.url }}/assets/soon.png">
+          {% endif %}
+          <div class="researchtitle">
+            <b>{{ post.title }}</b> <br>{{ post.rinfo }}<br />
+
+            {% if post.pdf %}
+              [<a href="{{ post.pdf }}">PDF</a>]
+            {% endif %}
+            {% if post.codelink %}
+              [<a href="{{ post.codelink }}">Code</a>]
+            {% endif %}
+            {% if post.projectlink %}
+              [<a href="{{ post.projectlink }}">Website</a>]
+            {% endif %}
+            {% if post.videolink %}
+              [<a href="{{ post.videolink }}">Video</a>]
+            {% endif %}
+            {% if post.posterlink %}
+              [<a href="{{ post.posterlink }}">Poster</a>]
+            {% endif %}
+            <!-- <div class="date"> -->
+              <!-- {{ post.date | date: "%b %Y" }} -->
+            <!-- </div> -->
+          </div>
+        </div>
+        <!-- </a> -->
+        <hr>
+      {% elsif post.layout == "news" %}
+        {% if post.projectlink %}
+          <a href="{{ post.projectlink }}">
+        {% endif %}
+        <div class="projectpreview">
+          {% if post.img %}
+            <img src="{{ site.url }}/assets/{{ post.img }}">
+          {% else %}
+            <img src="{{ site.url }}/assets/default.png">
+          {% endif %}
+          {{ post.title }}
+          <div class="date">
+            {{ post.date | date: "%b %Y" }}
+          </div>
+        </div>
+        </a>
+        <hr>
+      {% else %}
+        <a href="{{ post.url }}">
+        <div class="projectpreview">
+          {% if post.img %}
+            <img src="{{ site.url }}/assets/{{ post.img }}">
+          {% else %}
+            <img src="{{ site.url }}/assets/default.png">
+          {% endif %}
+          {{ post.title }}<br />
+          {% for tg in post.types %}
+            {% if tg != "all" %}
+              {{ tg | downcase }}
+            {% endif %}
+            {% unless forloop.first %}{% unless forloop.last %}/ {% endunless %}{% endunless %}
+          {% endfor %}
+          <div class="date">
+            {{ post.date | date: "%b %Y" }}
+          </div>
+        </div>
+        </a>
+        <hr>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+  </div>
+  {% endfor %}
+  <p>Please find my earlier undergraduate research in motion plannning and control at <a href="undergrad.html">this link</a>.</p>
+</div>

@@ -1,0 +1,47 @@
+# - date: "Feb 2025"
+#   text: "Our paper <i>Understanding the Black Box: A Deep Empirical Dive into Shapley Value Approximations for Tabular Data</i> has been accepted to SIGMOD 2025."
+
+# - date: "Jan 2025"
+#   text: "Preprint released — <i>On the Transferability of Sparse Autoencoders for Interpreting Compressed Models</i> (arXiv:2507.15977)."
+
+# - date: "May 2024"
+#   text: "Interned at <a href='https://aws.amazon.com/machine-learning/ai-services/' target='_blank'>Amazon Web Services (AWS) AI Labs</a> as an Applied Research Scientist Intern, working with GenAI LLM Foundations teams on agentic reinforcement learning for large language models."
+
+# - date: "Aug 2024"
+#   text: "Started working on mechanistic interpretability and alignment of large language models with Prof. <a href='https://khalilimahdi.github.io/' target='_blank'>Mahdi Khalili</a>."
+
+# - date: "May 2023"
+#   text: "Graduated with a Bachelor's Degree in Computer Science from Rutgers University."
+
+# - date: "Feb 2023"
+#   text: "Joined <a href='https://cse.osu.edu/' target='_blank'>The Ohio State University</a> as a PhD student in Computer Science and Engineering."
+
+# - date: "May 2022"
+#   text: "Presented <i>Detecting Invisible Keypoints</i> at EnCORE 2022, University of California, San Diego."
+
+# - date: "Apr 2021"
+#   text: "Awarded the Computer Science Academic Achievement Award, Rutgers–Camden."
+
+# - date: "Feb 2021"
+#   text: "Joined <a href='https://eshed1.github.io/' target='_blank'>Prof. Eshed Ohn-Bar’s</a> H2X Lab at Boston University as a research intern focusing on occluded keypoint detection."
+
+- date: "Feb, 2025"
+  text: "Our paper <i>Understanding the Black Box: A Deep Empirical Dive into Shapley Value Approximations for Tabular Data</i> has been accepted to SIGMOD 2025."
+
+- date: "May, 2023"
+  text: "Graduated with a Bachelors Degree in Computer Science from Rutgers"
+
+- date: "May, 2023"
+  text: "Dean's List, Spring 2023, Rutgers"
+
+- date: "April, 2023"
+  text: "Decided to go to <b>Ohio State University</b> for my PhD!"
+
+- date: "Feb, 2023"
+  text: "Dean's List, Fall 2022, Rutgers"
+
+- date: "Oct, 2022"
+  text: "Dean's List, Spring 2022, Rutgers"
+
+- date: "Feb, 2022"
+  text: "Dean's List, Fall 2021, Rutgers"
